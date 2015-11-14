@@ -1,0 +1,27 @@
+<html>
+
+<head>
+
+<title></title>
+
+</head>
+
+<body>
+<script type="text/javascript" id="script1">
+// define a constructor for Person class
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+// define the getName() method
+Person.prototype.getName = function() { return this.name; };
+Person.prototype.getAge = function() { return this.age; };
+
+peter = new Person('peter', 50);
+var peterJSONString = JSON.stringify(peter);
+console.log(peterJSONString);  // {"name":"peter","age":50} 
+</script> 
+</body>
+
+</html>

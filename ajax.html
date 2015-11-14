@@ -1,0 +1,33 @@
+﻿
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+<script type="application/javascript">
+function getData()
+{
+   var data_file = "data.json";
+   var http_request = new XMLHttpRequest();
+   http_request.onreadystatechange  = function(){
+      if (http_request.readyState == 4  )
+      {
+        // parse the response string to object
+        var obj = JSON.parse(http_request.responseText);
+
+        document.getElementById("name").innerHTML =  obj.name;
+        document.getElementById("address").innerHTML = obj.address;
+      }
+   }
+   http_request.open("GET", data_file, true);
+   http_request.send();
+}
+</script>
+<title>Ajax with JSON</title>
+</head>
+<body>
+<h1>Person Detail</h1>
+<table >
+<p>Name: <span id='name'></p>
+<p>Address: <span id='address'></p>
+<button type="button" onclick="getData()">Get Data </button>
+</body>
+</html>
